@@ -100,7 +100,6 @@ nav {
 .primary-heading {
   font-size: clamp(2rem, 5vw, 4rem);
   color: #4c4c4c;
-  /* line-height: 5rem; */
   max-width: 600px;
 }
 .primary-text {
@@ -176,10 +175,6 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.watch-video-button svg {
-  font-size: 3rem;
-  margin-right: 1rem;
 }
 .contact-page-wrapper h1 {
   max-width: 900px !important;

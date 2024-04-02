@@ -9,19 +9,12 @@ import Footer from "./Components/Footer";
 import "./App.css";
 
 function App() {
-  // const [users, setUsers] = useState([]);
   const [vans, setVans] = useState([]);
-
-  // const lastUserId = useMemo(() => users.length + 1, [users]);
 
   useEffect(() => {
     const fetchUsersAndVans = async () => {
       try {
-        // // Fetch users
-        // const usersResponse = await axios.get("http://localhost:3001/users");
-        // setUsers(usersResponse.data);
-
-        // Fetch vans
+        // async axios call for the GET all vans route 
         const vansResponse = await axios.get("http://localhost:3001/vans");
         setVans(vansResponse.data);
       } catch (error) {

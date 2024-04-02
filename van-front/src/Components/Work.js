@@ -5,6 +5,7 @@ import DeliveryTruck from "./svg/SvgComponent";
 
 
 const Work = () => {
+  // list object to display the svg icons with
   const workInfoData = [
     {
       icon: <Agenda/>,

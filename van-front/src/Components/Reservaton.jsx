@@ -17,13 +17,14 @@ import {
 import axios from "axios";
 import { useEffect } from "react";
 
+// initializing the user state
 const initialUserState = {
   CFname: "",
   CLname: "",
   email: "",
   phone: "",
 };
-
+// initializing the formData state
 const initialFormData = {
   userID: "",
   vanID: "",
@@ -39,14 +40,16 @@ const initialFormData = {
 };
 
 const ReservationForm = ({ vans }) => {
-  const [user, setUser] = useState(initialUserState);
-  const [formData, setFormData] = useState(initialFormData);
-  const [openModal, setOpenModal] = useState(false);
-  const [reservation, setReservation] = useState(null);
-  const [resv, setResv] = useState(null);
+  //definition of  the states
+  const [user, setUser] = useState(initialUserState); //to use in the user creation api call
+  const [formData, setFormData] = useState(initialFormData); // to store the form data changes
+  const [openModal, setOpenModal] = useState(false); //set to true after price estimation, when true a popup is rendred with details of reservation
+  const [reservation, setReservation] = useState(null); //the reservation details to send in a post request to reservation create api
+  const [resv, setResv] = useState(null); //to store the estimated price value
 
   const handleChangeForm = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    //update the state's key:value based on the input name attribute and value
   };
 
   const handleChangeUser = (e) => {
@@ -103,15 +106,15 @@ const ReservationForm = ({ vans }) => {
 
       setFormData((prevFormData) => ({
         ...prevFormData,
-        estimatedPrice: priceResponse.data.estimatedPrice,
+        estimatedPrice: priceResponse.data.estimatedPrice, // update the estimatedPrice value of the formData
       }));
 
       // Prepare reservation details
       setReservation((prevReservation) => ({
         ...prevReservation,
         ...formData,
-        user: userResponse.data,
-        van: vans.find((van) => van._id === formData.vanID),
+        user: userResponse.data, //store the user details
+        van: vans.find((van) => van._id === formData.vanID), //store the picked van details,
       }));
 
       setResv(priceResponse.data.estimatedPrice);
@@ -132,13 +135,14 @@ const ReservationForm = ({ vans }) => {
     setResv(null);
   };
   useEffect(() => {
+    // a function that executes twice if it has no dependency , else it will work whenever dependency is changed(exp resv)
     if (resv !== null) {
       setOpenModal(true);
     }
   }, [resv]);
   return (
     <Container maxWidth="md">
-      <Typography variant="h4"  id="reservation" gutterBottom> 
+      <Typography variant="h4" id="reservation" gutterBottom>
         Reservation Form
       </Typography>
       <form onSubmit={handleSubmit}>
@@ -187,7 +191,6 @@ const ReservationForm = ({ vans }) => {
               required
             />
           </Grid>
-
           <Grid item xs={12}>
             <TextField
               label="Pickup Location"
@@ -212,7 +215,6 @@ const ReservationForm = ({ vans }) => {
           </Grid>
           <Grid item xs={12}>
             <TextField
-            
               label="Date"
               variant="outlined"
               type="datetime-local"
@@ -256,7 +258,6 @@ const ReservationForm = ({ vans }) => {
               onChange={handleChangeForm}
               fullWidth
               required
-              
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -297,7 +298,6 @@ const ReservationForm = ({ vans }) => {
                 value={formData.vanID}
                 onChange={handleChangeForm}
               >
-                {console.log(vans)}
                 {vans.map((van) => (
                   <MenuItem key={van._id} value={van._id}>
                     <Container>
@@ -317,7 +317,7 @@ const ReservationForm = ({ vans }) => {
           </Grid>
           {/* Add more fields as needed */}
           <Grid item xs={12}>
-            <Button type="submit" variant="contained" color="info" >
+            <Button type="submit" variant="contained" color="info">
               Estimer
             </Button>
           </Grid>
@@ -346,7 +346,7 @@ const ReservationForm = ({ vans }) => {
             }}
           >
             <div>
-              <Typography  variant="h5" gutterBottom>
+              <Typography variant="h5" gutterBottom>
                 Reservation Details
               </Typography>
               {resv !== null ? (
@@ -429,18 +429,27 @@ const ReservationForm = ({ vans }) => {
                   <ListItem>
                     <ListItemText
                       primary="Van Details"
-                      secondary={ <Container>
-                        <Typography>- Model: {reservation.van.model}</Typography>
-                        <Typography>- Type: {reservation.van.type}</Typography>
-                        <Typography>- Capacity: {reservation.van.capacity}</Typography>
-                        <Typography>
-                          - Dimensions:{" "}
-                          {`${reservation.van.dimensions.length} x ${reservation.van.dimensions.width} x ${reservation.van.dimensions.height}`}
-                        </Typography>
-                        <Typography>- Basic Price: {reservation.van.basePrice} €</Typography>
-                      </Container>}
+                      secondary={
+                        <Container>
+                          <Typography>
+                            - Model: {reservation.van.model}
+                          </Typography>
+                          <Typography>
+                            - Type: {reservation.van.type}
+                          </Typography>
+                          <Typography>
+                            - Capacity: {reservation.van.capacity}
+                          </Typography>
+                          <Typography>
+                            - Dimensions:{" "}
+                            {`${reservation.van.dimensions.length} x ${reservation.van.dimensions.width} x ${reservation.van.dimensions.height}`}
+                          </Typography>
+                          <Typography>
+                            - Basic Price: {reservation.van.basePrice} €
+                          </Typography>
+                        </Container>
+                      }
                     />
-                   
                   </ListItem>
                 </List>
               ) : (
