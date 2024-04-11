@@ -3,20 +3,19 @@
     "version": "0.1.0",
     "main": "index.js",
     "scripts": {
-      "start": "node index.js"
+        "start": "node index.js"
     },
     "keywords": [
-      "express",
-      "node",
-      "javascript"
+        "express",
+        "node",
+        "javascript"
     ],
     "license": "MIT",
     "dependencies": {
-      "express": "^4.17.1",
-      "dotenv": "^10.0.0",
-      "body-parser": "^1.19.0",
-      "mongoose": "^6.0.12",
-      "cors": "^2.8.5"
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "express": "^4.19.2",
+        "mongoose": "^8.3.1"
     }
-  }
-  
+}
