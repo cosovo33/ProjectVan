@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 /van-front/.env
-/back-end_van/.env
+/back-end_Van/.env
 
 # testing
 /coverage
