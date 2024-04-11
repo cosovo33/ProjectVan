@@ -39,4 +39,4 @@ app.get("/", (req, res) => {
 app.use('/users', userRoutes);
 app.use('/vans', vanRoutes);
 app.use('/reservations', reservationRoutes);
-
+module.exports = app;
