@@ -34,8 +34,11 @@ EMAIL='example@gmail.com' --> email for SMTP
     Replace `your_mongodb_uri` with the connection URI of your MongoDB database.
 
 5. Start the server:
-node App.js
 
+    ```bash
+    cd PROJECTVAN/back-end_Van/api
+    node index.js
+    ```
 6. The server should now be running on `http://localhost:3001`.
 
 ## Working with MongoDB
@@ -53,12 +56,11 @@ ProjectVan
 │
 └───back-end_Van
     │
-    ├───.env
-    │   - Configuration file for environment variables.
-    │
-    ├───App.js
-    │   - Main JavaScript file defining the entry point of the backend application.
-    │
+    │───api
+    |   |───App.js
+    │   |    - Main JavaScript file defining the entry point of the backend application.
+    │   ├───.env
+    │       - Configuration file for environment variables.
     ├───reservation
     │   │
     │   ├───api

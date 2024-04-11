@@ -1,4 +1,4 @@
  
-  { "version": 2, "rewrites": [{ "source": "/(.*)", "destination": "/api" }] }
+  { "version": 2, "rewrites": [{ "source": "/(.*)", "destination": "/api" },{ "source": "/reservation/(.*)", "destination": "/reservation" }] }
   
-  
+  //this is for the vercel deployement and hosting 
