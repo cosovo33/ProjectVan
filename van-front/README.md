@@ -9,7 +9,7 @@ run `npm start` the react app should run on `localhost:3000`.
 The project structure is organized as follows:
 
 ```
-ProjectVan
+PROJECTVAN
 │
 └───van-front
         │

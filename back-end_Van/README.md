@@ -15,7 +15,7 @@ To set up the backend server, follow these steps:
 2. Navigate to the project directory:
 
     ```bash
-    cd ProjectVan-backend
+    cd PROJECTVAN/back-end_Van
     ```
 
 3. Install dependencies:
@@ -52,12 +52,12 @@ install mongoDB compass for user interface usage.
 The project structure is organized as follows:
 
 ```
-ProjectVan
+PROJECTVAN
 │
 └───back-end_Van
     │
     │───api
-    |   |───App.js
+    |   |───index.js
     │   |    - Main JavaScript file defining the entry point of the backend application.
     │   ├───.env
     │       - Configuration file for environment variables.
