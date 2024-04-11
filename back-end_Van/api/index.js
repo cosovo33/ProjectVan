@@ -2,9 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const reservationRoutes = require('./reservation/reservationRoutes');
-const vanRoutes = require('./van/vanRoutes');
-const userRoutes = require('./user/userRoutes');
+const reservationRoutes = require('../reservation/reservationRoutes');
+const vanRoutes = require('../van/vanRoutes');
+const userRoutes = require('../user/userRoutes');
 const cors = require("cors");
 
 
