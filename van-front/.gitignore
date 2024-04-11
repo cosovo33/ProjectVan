@@ -4,8 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-/front/.env
-/back/.env
+/van-front/.env
+/back-end_van/.env
 
 # testing
 /coverage
